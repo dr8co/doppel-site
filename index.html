@@ -8,160 +8,165 @@
     <script src="js/script.js" defer></script>
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="bg-animation">
-        <div class="floating-shape shape1"></div>
-        <div class="floating-shape shape2"></div>
-        <div class="floating-shape shape3"></div>
+<!-- Animated Background -->
+<div class="bg-animation">
+    <div class="floating-shape shape1"></div>
+    <div class="floating-shape shape2"></div>
+    <div class="floating-shape shape3"></div>
+</div>
+
+<!-- Navigation -->
+<nav id="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">
+            <div class="logo-icon">#</div>
+            <span>doppel</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#presets">Presets</a></li>
+            <li><a href="https://github.com" target="_blank">GitHub</a></li>
+        </ul>
     </div>
+</nav>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <div class="logo-icon">#</div>
-                <span>doppel</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#presets">Presets</a></li>
-                <li><a href="https://github.com" target="_blank">GitHub</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Find Duplicates at Lightning Speed</h1>
-                <p>Blazing fast duplicate file finder with parallel Blake3 hashing, smart filtering, and beautiful output formats. Clean up your storage in seconds, not hours.</p>
-                <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary">Download Now</a>
-                    <a href="#features" class="btn btn-secondary">Explore Features</a>
-                </div>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>Find Duplicates at Lightning Speed</h1>
+            <p>Blazing fast duplicate file finder with parallel Blake3 hashing, smart filtering, and beautiful output
+                formats. Clean up your storage in seconds, not hours.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">Download Now</a>
+                <a href="#features" class="btn btn-secondary">Explore Features</a>
             </div>
-            <div class="hero-visual">
-                <div class="floating-cards">
-                    <div class="float-card card-1">
-                        <div class="card-icon">🚀</div>
-                        <div class="card-text">8000+ files/sec</div>
-                    </div>
-                    <div class="float-card card-2">
-                        <div class="card-icon">⚡</div>
-                        <div class="card-text">Blake3 Hashing</div>
-                    </div>
-                    <div class="float-card card-3">
-                        <div class="card-icon">💾</div>
-                        <div class="card-text">Cross-Platform</div>
-                    </div>
-                    <div class="float-card card-4">
-                        <div class="card-icon">🎯</div>
-                        <div class="card-text">Smart Filters</div>
-                    </div>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-cards">
+                <div class="float-card card-1">
+                    <div class="card-icon">🚀</div>
+                    <div class="card-text">8000+ files/sec</div>
+                </div>
+                <div class="float-card card-2">
+                    <div class="card-icon">⚡</div>
+                    <div class="card-text">Blake3 Hashing</div>
+                </div>
+                <div class="float-card card-3">
+                    <div class="card-icon">💾</div>
+                    <div class="card-text">Cross-Platform</div>
+                </div>
+                <div class="float-card card-4">
+                    <div class="card-icon">🎯</div>
+                    <div class="card-text">Smart Filters</div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <h2 class="section-title">Powerful Features</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>Parallel Processing</h3>
-                <p>Leverage multiple CPU cores with configurable worker threads for maximum performance. Blake3 hashing ensures accuracy at incredible speeds.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Smart Filtering</h3>
-                <p>Fine-tune your search with size limits, glob patterns, and regex expressions. Skip directories and files you don't care about.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Multiple Formats</h3>
-                <p>Export results in JSON, YAML, or beautiful text format. Perfect for automation, scripting, or human-readable reports.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎨</div>
-                <h3>Preset Profiles</h3>
-                <p>Built-in presets for common scenarios: development, media files, documents, and cleanup tasks. Get started instantly.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🖥️</div>
-                <h3>Cross-Platform</h3>
-                <p>Works seamlessly on Linux, macOS, and Windows. Native performance with a single Go binary.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔧</div>
-                <h3>Fully Configurable</h3>
-                <p>JSON, YAML, TOML config files and environment variables. Customize every aspect to your workflow.</p>
-            </div>
+<!-- Features Section -->
+<section class="features" id="features">
+    <h2 class="section-title">Powerful Features</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Parallel Processing</h3>
+            <p>Leverage multiple CPU cores with configurable worker threads for maximum performance. Blake3 hashing
+                ensures accuracy at incredible speeds.</p>
         </div>
-    </section>
+        <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Smart Filtering</h3>
+            <p>Fine-tune your search with size limits, glob patterns, and regex expressions. Skip directories and files
+                you don't care about.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Multiple Formats</h3>
+            <p>Export results in JSON, YAML, or beautiful text format. Perfect for automation, scripting, or
+                human-readable reports.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3>Preset Profiles</h3>
+            <p>Built-in presets for common scenarios: development, media files, documents, and cleanup tasks. Get
+                started instantly.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🖥️</div>
+            <h3>Cross-Platform</h3>
+            <p>Works seamlessly on Linux, macOS, and Windows. Native performance with a single Go binary.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔧</div>
+            <h3>Fully Configurable</h3>
+            <p>JSON, YAML, TOML config files and environment variables. Customize every aspect to your workflow.</p>
+        </div>
+    </div>
+</section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat-card">
-                <div class="stat-number">8000+</div>
-                <div class="stat-label">Files/Second</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">Blake3</div>
-                <div class="stat-label">Hashing Algorithm</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">4ms</div>
-                <div class="stat-label">Average Scan Time</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Accuracy</div>
-            </div>
+<!-- Stats Section -->
+<section class="stats">
+    <div class="stats-container">
+        <div class="stat-card">
+            <div class="stat-number">8000+</div>
+            <div class="stat-label">Files/Second</div>
         </div>
-    </section>
+        <div class="stat-card">
+            <div class="stat-number">Blake3</div>
+            <div class="stat-label">Hashing Algorithm</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">4ms</div>
+            <div class="stat-label">Average Scan Time</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Accuracy</div>
+        </div>
+    </div>
+</section>
 
-    <!-- Presets Section -->
-    <section class="presets" id="presets">
-        <h2 class="section-title">Built-in Presets</h2>
-        <div class="presets-grid">
-            <div class="preset-card">
-                <div class="preset-icon">💻</div>
-                <div class="preset-name">Development</div>
-                <div class="preset-desc">Skip node_modules, build directories, and version control files</div>
-            </div>
-            <div class="preset-card">
-                <div class="preset-icon">🎬</div>
-                <div class="preset-name">Media</div>
-                <div class="preset-desc">Focus on images and videos, ignore small thumbnails</div>
-            </div>
-            <div class="preset-card">
-                <div class="preset-icon">📄</div>
-                <div class="preset-name">Documents</div>
-                <div class="preset-desc">Find duplicate PDFs, Word docs, and text files</div>
-            </div>
-            <div class="preset-card">
-                <div class="preset-icon">🧹</div>
-                <div class="preset-name">Clean</div>
-                <div class="preset-desc">Skip temporary files, caches, and system files</div>
-            </div>
+<!-- Presets Section -->
+<section class="presets" id="presets">
+    <h2 class="section-title">Built-in Presets</h2>
+    <div class="presets-grid">
+        <div class="preset-card">
+            <div class="preset-icon">💻</div>
+            <div class="preset-name">Development</div>
+            <div class="preset-desc">Skip node_modules, build directories, and version control files</div>
         </div>
-    </section>
+        <div class="preset-card">
+            <div class="preset-icon">🎬</div>
+            <div class="preset-name">Media</div>
+            <div class="preset-desc">Focus on images and videos, ignore small thumbnails</div>
+        </div>
+        <div class="preset-card">
+            <div class="preset-icon">📄</div>
+            <div class="preset-name">Documents</div>
+            <div class="preset-desc">Find duplicate PDFs, Word docs, and text files</div>
+        </div>
+        <div class="preset-card">
+            <div class="preset-icon">🧹</div>
+            <div class="preset-name">Clean</div>
+            <div class="preset-desc">Skip temporary files, caches, and system files</div>
+        </div>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="#">Documentation</a>
-                <a href="#">GitHub</a>
-                <a href="#">License</a>
-                <a href="#">Support</a>
-            </div>
-            <p>&copy; 2025 Doppel. Built with Go and ❤️</p>
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-links">
+            <a href="#">Documentation</a>
+            <a href="#">GitHub</a>
+            <a href="#">License</a>
+            <a href="#">Support</a>
         </div>
-    </footer>
+        <p>&copy; 2025 Doppel. Built with Go and ❤️</p>
+    </div>
+</footer>
 </body>
 </html>
 
