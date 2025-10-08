@@ -63,7 +63,7 @@ document.querySelectorAll('.stat-card').forEach((card, index) => {
 let ticking = false;
 
 function updateParallax() {
-    const scrolled = window.pageYOffset;
+    const scrolled = window.scrollY;
     const shapes = document.querySelectorAll('.floating-shape');
 
     shapes.forEach((shape, index) => {
