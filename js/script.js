@@ -21,6 +21,65 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Carousel functionality
+const cards = document.querySelectorAll('.carousel-card');
+const indicators = document.querySelectorAll('.indicator');
+let currentIndex = 0;
+let autoPlayInterval;
+
+function updateCarousel(newIndex) {
+    cards.forEach((card, idx) => {
+        card.classList.remove('active', 'prev', 'next');
+        
+        if (idx === newIndex) {
+            card.classList.add('active');
+        } else if (idx === (newIndex - 1 + cards.length) % cards.length) {
+            card.classList.add('prev');
+        } else if (idx === (newIndex + 1) % cards.length) {
+            card.classList.add('next');
+        }
+    });
+    
+    indicators.forEach((indicator, idx) => {
+        indicator.classList.toggle('active', idx === newIndex);
+    });
+    
+    currentIndex = newIndex;
+}
+
+function nextSlide() {
+    updateCarousel((currentIndex + 1) % cards.length);
+}
+
+function prevSlide() {
+    updateCarousel((currentIndex - 1 + cards.length) % cards.length);
+}
+
+function startAutoPlay() {
+    autoPlayInterval = setInterval(nextSlide, 4000);
+}
+
+function stopAutoPlay() {
+    clearInterval(autoPlayInterval);
+}
+
+indicators.forEach((indicator, idx) => {
+    indicator.addEventListener('click', () => {
+        updateCarousel(idx);
+        stopAutoPlay();
+        startAutoPlay();
+    });
+});
+
+// Pause autoplay on hover
+const carouselContainer = document.querySelector('.carousel-container');
+carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+carouselContainer.addEventListener('mouseleave', startAutoPlay);
+
+// Initialize carousel
+updateCarousel(0);
+startAutoPlay();
+
 // Intersection Observer for animations
 const observerOptions = {
     threshold: 0.1, rootMargin: '0px 0px -50px 0px'
@@ -58,45 +117,6 @@ document.querySelectorAll('.stat-card').forEach((card, index) => {
     card.style.transition = `all 0.6s ease ${index * 0.1}s`;
     observer.observe(card);
 });
-
-// Parallax effect for floating shapes
-let ticking = false;
-
-function updateParallax() {
-    const scrolled = window.scrollY;
-    const shapes = document.querySelectorAll('.floating-shape');
-
-    shapes.forEach((shape, index) => {
-        const speed = 0.5 + (index * 0.1);
-        const yPos = -(scrolled * speed);
-        shape.style.transform = `translateY(${yPos}px)`;
-    });
-
-    ticking = false;
-}
-
-function requestTick() {
-    if (!ticking) {
-        window.requestAnimationFrame(updateParallax);
-        ticking = true;
-    }
-}
-
-window.addEventListener('scroll', requestTick);
-
-// Floating cards 3D effect on mouse move
-const floatingCards = document.querySelector('.floating-cards');
-if (floatingCards) {
-    document.addEventListener('mousemove', (e) => {
-        const {clientX, clientY} = e;
-        const {innerWidth, innerHeight} = window;
-
-        const xRotation = ((clientY - innerHeight / 2) / innerHeight) * 15;
-        const yRotation = ((clientX - innerWidth / 2) / innerWidth) * 15;
-
-        floatingCards.style.transform = `rotateX(${-xRotation}deg) rotateY(${yRotation}deg)`;
-    });
-}
 
 // Add click ripple effect to buttons
 document.querySelectorAll('.btn').forEach(btn => {
