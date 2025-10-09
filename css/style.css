@@ -674,4 +674,12 @@ footer {
         bottom: -110px;
         transform: translateX(-50%);
     }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
 }
