@@ -1,3 +1,19 @@
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navLinks = document.getElementById('navLinks');
+
+mobileMenuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+});
+
+// Close mobile menu when clicking a link
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.textContent = '☰';
+    });
+});
+
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
     const navbar = document.getElementById('navbar');
@@ -51,10 +67,6 @@ function nextSlide() {
     updateCarousel((currentIndex + 1) % cards.length);
 }
 
-function prevSlide() {
-    updateCarousel((currentIndex - 1 + cards.length) % cards.length);
-}
-
 function startAutoPlay() {
     autoPlayInterval = setInterval(nextSlide, 4000);
 }
@@ -75,6 +87,32 @@ indicators.forEach((indicator, idx) => {
 const carouselContainer = document.querySelector('.carousel-container');
 carouselContainer.addEventListener('mouseenter', stopAutoPlay);
 carouselContainer.addEventListener('mouseleave', startAutoPlay);
+
+// Touch swipe support for carousel
+let touchStartX = 0;
+let touchEndX = 0;
+
+carouselContainer.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+carouselContainer.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        nextSlide();
+        stopAutoPlay();
+        startAutoPlay();
+    }
+    if (touchEndX > touchStartX + 50) {
+        updateCarousel((currentIndex - 1 + cards.length) % cards.length);
+        stopAutoPlay();
+        startAutoPlay();
+    }
+}
 
 // Initialize carousel
 updateCarousel(0);
