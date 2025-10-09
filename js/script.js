@@ -272,8 +272,12 @@ function createParticle() {
     particle.style.background = 'rgba(78, 205, 196, 0.6)';
     particle.style.borderRadius = '50%';
     particle.style.pointerEvents = 'none';
-    particle.style.left = Math.random() * window.innerWidth + 'px';
-    particle.style.top = window.innerHeight + 'px';
+    // Spawn particles within the hero bounds to avoid horizontal overflow
+    const heroEl = document.querySelector('.hero');
+    const heroRect = heroEl.getBoundingClientRect();
+    // Position relative to the hero container (0..width/height)
+    particle.style.left = (Math.random() * heroRect.width) + 'px';
+    particle.style.top = (heroRect.height) + 'px';
 
     const duration = 3000 + Math.random() * 2000;
     const size = 2 + Math.random() * 4;
@@ -281,11 +285,12 @@ function createParticle() {
     particle.animate([{
         transform: 'translateY(0) scale(1)',
         opacity: 1
-    }, {transform: `translateY(-${window.innerHeight}px) scale(${size})`, opacity: 0}], {
+    }, {transform: `translateY(-${heroRect.height}px) scale(${size})`, opacity: 0}], {
         duration: duration, easing: 'linear'
     }).onfinish = () => particle.remove();
 
-    document.querySelector('.hero').appendChild(particle);
+    // Append to the hero element (which now has overflow hidden) so particles don't cause scroll
+    heroEl.appendChild(particle);
 }
 
 // Create particles periodically

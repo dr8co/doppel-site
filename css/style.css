@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+/* Prevent horizontal scrolling across the entire document */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 :root {
     --primary: #4ecdc4;
     --secondary: #2b3442;
@@ -39,6 +45,11 @@ body {
     border-radius: 50%;
     animation: float 20s infinite ease-in-out;
     filter: blur(40px);
+
+    /* Keep shapes from forcing horizontal scroll on small screens */
+    max-width: 60vw;
+    max-height: 60vh;
+    will-change: transform;
 }
 
 .shape1 {
@@ -183,6 +194,7 @@ nav.scrolled {
     justify-content: center;
     padding: clamp(100px, 15vh, 120px) clamp(1rem, 4vw, 3rem) clamp(2rem, 8vh, 3rem);
     position: relative;
+    overflow: hidden; /* clip particles and other absolute children */
 }
 
 .hero-content {
@@ -652,6 +664,11 @@ footer p {
         border-radius: 20px 0 0 20px;
         transition: right 0.3s ease;
         box-shadow: -5px 5px 30px rgba(0, 0, 0, 0.5);
+        box-sizing: border-box;
+        width: min(360px, 85vw);
+        right: -110%; /* hide fully offscreen */
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
     }
 
     .nav-links.active {
@@ -696,7 +713,7 @@ footer p {
     .stats-container {
         grid-template-columns: 1fr;
     }
-    
+
     .presets-grid {
         grid-template-columns: 1fr;
     }
