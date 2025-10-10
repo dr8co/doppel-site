@@ -6,7 +6,7 @@ mobileMenuBtn.addEventListener('click', () => {
     mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
 });
 
-// Close mobile menu when clicking a link
+// Close the mobile menu when clicking a link
 navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
@@ -206,7 +206,7 @@ document.querySelectorAll('.btn').forEach(btn => {
 function animateCounter(element, target) {
     const duration = 2000;
     const start = 0;
-    const increment = target / (duration / 16);
+    const increment = target / (duration / 25);
     let current = start;
 
     const updateCounter = () => {
@@ -222,13 +222,13 @@ function animateCounter(element, target) {
     updateCounter();
 }
 
-// Trigger counter animation when stats section is visible
+// Trigger counter animation when a stats section is visible
 const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting && !entry.target.dataset.animated) {
             const statNumber = entry.target.querySelector('.stat-number');
-            if (statNumber && statNumber.textContent.includes('8000')) {
-                animateCounter(statNumber, 8000);
+            if (statNumber && statNumber.textContent.includes('100000')) {
+                animateCounter(statNumber, 100000);
                 entry.target.dataset.animated = 'true';
             }
         }
@@ -236,12 +236,12 @@ const statsObserver = new IntersectionObserver((entries) => {
 }, {threshold: 0.5});
 
 document.querySelectorAll('.stat-card').forEach(card => {
-    if (card.querySelector('.stat-number').textContent.includes('8000')) {
+    if (card.querySelector('.stat-number').textContent.includes('100000')) {
         statsObserver.observe(card);
     }
 });
 
-// Add glow effect on hover for preset cards
+// Add a glow effect on hover for preset cards
 document.querySelectorAll('.preset-card').forEach(card => {
     card.addEventListener('mouseenter', function (e) {
         this.style.boxShadow = '0 0 30px rgba(78, 205, 196, 0.5)';
@@ -263,7 +263,7 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Add particle effect on hero section
+// Add particle effect on a hero section
 function createParticle() {
     const particle = document.createElement('div');
     particle.style.position = 'absolute';
