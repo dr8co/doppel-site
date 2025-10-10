@@ -227,8 +227,8 @@ const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting && !entry.target.dataset.animated) {
             const statNumber = entry.target.querySelector('.stat-number');
-            if (statNumber && statNumber.textContent.includes('100000')) {
-                animateCounter(statNumber, 100000);
+            if (statNumber && statNumber.textContent.includes('99999')) {
+                animateCounter(statNumber, 99999);
                 entry.target.dataset.animated = 'true';
             }
         }
@@ -236,7 +236,7 @@ const statsObserver = new IntersectionObserver((entries) => {
 }, {threshold: 0.5});
 
 document.querySelectorAll('.stat-card').forEach(card => {
-    if (card.querySelector('.stat-number').textContent.includes('100000')) {
+    if (card.querySelector('.stat-number').textContent.includes('99999')) {
         statsObserver.observe(card);
     }
 });
